@@ -1,0 +1,333 @@
+Make(delphi)
+ver(4.05 build 186)
+Add(MainForm,12468929,84,84)
+{
+ Left=20
+ Top=105
+ Width=260
+ Height=128
+ Visible=1
+ Ctl3D=0
+ Caption="Генератор ключей"
+ BorderStyle=4
+ Position=1
+ Point(doVisible)
+ Point(Handle)
+ link(onCreate,4327552:doEvent1,[])
+}
+Add(Edit,35776,350,56)
+{
+ Left=45
+ Top=10
+ Width=40
+ Font=[MS Sans Serif,8,1,0,1]
+ TabOrder=2
+ Text=""
+}
+Add(Edit,8155666,357,91)
+{
+ Left=90
+ Top=10
+ Width=40
+ Font=[MS Sans Serif,8,1,0,1]
+ TabOrder=3
+ Text=""
+ Alignment=2
+}
+Add(Button,1662403,287,210)
+{
+ Left=60
+ Top=61
+ Width=135
+ Height=30
+ Font=[MS Sans Serif,8,1,0,1]
+ TabOrder=-1
+ Caption="Генерация Ключа"
+ link(onClick,8620188:doString,[])
+}
+Add(Edit,11060323,371,161)
+{
+ Left=180
+ Top=10
+ Width=40
+ Font=[MS Sans Serif,8,1,0,1]
+ TabOrder=5
+ Text=""
+ Alignment=2
+}
+Add(Edit,15566832,364,126)
+{
+ Left=135
+ Top=10
+ Width=40
+ Font=[MS Sans Serif,8,1,0,1]
+ TabOrder=4
+ Text=""
+ Alignment=2
+}
+Add(Label,14081779,133,56)
+{
+ Left=5
+ Top=10
+ Width=38
+ Height=17
+ Font=[MS Sans Serif,8,1,0,1]
+ Cursor=2
+ Caption="Код:"
+ AutoSize=1
+ Alignment=1
+}
+Add(Edit,9062470,784,217)
+{
+ Left=45
+ Top=35
+ Width=40
+ Font=[MS Sans Serif,8,1,0,1]
+ TabOrder=-1
+ Text=""
+ Alignment=2
+ ReadOnly=0
+}
+Add(FormatStr,8620188,350,210)
+{
+ DataCount=4
+ Mask="%1%2%3%4"
+ link(onFString,5902569:doSerial,[])
+ link(Str1,35776:Text,[])
+ link(Str2,8155666:Text,[])
+ link(Str3,15566832:Text,[])
+ link(Str4,11060323:Text,[])
+}
+Add(Hub,4327552,133,98)
+{
+ OutCount=5
+ link(onEvent1,4323913:doPopup,[(177,104)(177,128)(72,128)(72,153)])
+ link(onEvent2,12468929:doVisible,[(174,111)(174,184)(66,184)(66,118)])
+ link(onEvent3,5661455:doWork,[])
+ link(onEvent4,5967809:doWork,[(177,125)(177,132)])
+}
+Add(LineBreak,13224176,126,259)
+{
+ Caption="ToBuffer"
+ link(Out,5115455:doPutText,[])
+ Primary=[1192536,595,49]
+}
+Add(Clipboard,5115455,196,259)
+{
+}
+Add(DoData,3456556,196,315)
+{
+ link(onEventData,16762818:doEvent1,[])
+ link(Data,5115455:Text,[])
+}
+Add(Hub,16762818,245,315)
+{
+ OutCount=4
+ link(onEvent1,2219108:doCopy,[])
+ link(onEvent2,11187925:doCopy,[])
+ link(onEvent3,8926989:doCopy,[])
+ link(onEvent4,14939195:doCopy,[])
+}
+Add(FormatStr,1754782,658,308)
+{
+ DataCount=4
+ Mask="%4-%3-%2-%1"
+ link(onFString,1192536:In,[])
+ link(Str1,974968:Text,[(664,289)(601,289)])
+ link(Str2,7884794:Text,[(671,286)(664,286)])
+ link(Str3,6185531:Text,[(678,282)(727,282)])
+ link(Str4,9062470:Text,[(685,278)(790,278)])
+}
+Add(Label,1580906,168,56)
+{
+ Left=5
+ Top=35
+ Width=38
+ Height=17
+ Font=[MS Sans Serif,8,1,0,1]
+ Cursor=2
+ Caption="Ключ:"
+ AutoSize=1
+ Alignment=1
+}
+Add(Copy,8233403,742,217)
+{
+ Position=1
+ Count=4
+ link(onCopy,9062470:doText,[])
+}
+Add(Hub,4590177,504,217)
+{
+ OutCount=4
+ link(onEvent1,8233403:doCopy,[])
+ link(onEvent2,14246266:doCopy,[])
+ link(onEvent3,6179834:doCopy,[])
+ link(onEvent4,4228671:doCopy,[])
+}
+Add(LineBreak,8042665,287,126)
+{
+ Caption="4_Pos"
+ link(Out,15566832:doText,[])
+ Primary=[10317035,84,203]
+}
+Add(LineBreak,1740714,287,91)
+{
+ Caption="3_Pos"
+ link(Out,8155666:doText,[])
+ Primary=[8628352,84,224]
+}
+Add(Copy,14246266,679,224)
+{
+ Position=5
+ Count=4
+ link(onCopy,6185531:doText,[])
+}
+Add(Copy,6179834,616,231)
+{
+ Position=9
+ Count=4
+ link(onCopy,7884794:doText,[])
+}
+Add(LineBreak,335010,287,56)
+{
+ Caption="2_Pos"
+ link(Out,35776:doText,[])
+ Primary=[2984607,84,245]
+}
+Add(Copy,4228671,553,238)
+{
+ Position=13
+ Count=4
+ link(onCopy,974968:doText,[])
+}
+Add(Edit,7884794,658,231)
+{
+ Left=135
+ Top=35
+ Width=40
+ Font=[MS Sans Serif,8,1,0,1]
+ TabOrder=-1
+ Text=""
+ Alignment=2
+ ReadOnly=0
+}
+Add(Edit,974968,595,238)
+{
+ Left=180
+ Top=35
+ Width=40
+ Font=[MS Sans Serif,8,1,0,1]
+ TabOrder=-1
+ Text=""
+ Alignment=2
+ ReadOnly=0
+}
+Add(LineBreak,9727807,287,161)
+{
+ Caption="5_Pos"
+ link(Out,11060323:doText,[])
+ Primary=[9459538,84,182]
+}
+Add(Edit,6185531,721,224)
+{
+ Left=90
+ Top=35
+ Width=40
+ Font=[MS Sans Serif,8,1,0,1]
+ TabOrder=-1
+ Text=""
+ Alignment=2
+ ReadOnly=0
+}
+Add(Copy,2219108,294,315)
+{
+ Position=1
+ Count=4
+ link(onCopy,2984607:In,[(348,321)(348,307)])
+}
+Add(BitBtn,7285468,609,308)
+{
+ Left=225
+ Top=35
+ Width=20
+ TabOrder=-1
+ FrameColor=-16777201
+ Caption=""
+ Bitmap=[ZIP3609000078DAD5942172C330104537333D408F50D813E400E5B94068A161618881A18F101A1868E899224343435141CD9408AA2BC97264491BD94E0ABA330FC4DEBFFBBFEDE8E3B07F01537BE41D791DD9C19BBD31DEF74B2915D1D435D4C7639694D6E995E420054BC3FBACDEF4B11EE96608BCA659B25F0D9724A13ECC6BF522DA2D596BBC6BFDB9F824F34E7A1EFB977C18F50599D7E895A4FDE38CCBE98BCC3BE9B14F230DBDFD8D7D82B184FE96D7EAFD672A0D5A37741DB4D72B345542CFFBBB7A7DDD67A6F7F2C6FA5B9F680AE8EA53FCBEBDBCE11E9FB6AAD2DFCB8ABC4BF554DEBCFE7EDE54DF9ABC015EE181F063EADB555996F694C81610A59E5AE80D42C635E479E6E37A752E1D6D095BE76B6F5A9FF2FC0CFF7F3D7F556D9CEF3CE2A736C3BE9F72F3FC89C48ED9ECA037379FFAD0C31DC43F6135D43372FEB7CCCC6579D4F37FE217A1156567]
+ Point(doHint)
+ link(onClick,1754782:doString,[])
+}
+Add(BitBtn,1721921,147,315)
+{
+ Left=225
+ Top=10
+ Width=20
+ TabOrder=-1
+ FrameColor=-16777201
+ Caption=""
+ Bitmap=[ZIP3609000078DAD594A16EC4300C863D690FB04718DC5EE01E607C4F7370A4E060616169616161A5A1C0C2C0D0C0482381991D275D2E4D7677DD0666E957AB26DF6FBB75FAF27AB8071F07D413EA21E80E1E7921ACA7E19C5BF5DC2BAFE1ED789572B695064ED2C22266704681351AA58A4A799F533BE88C83D63ACF5B2D594A249AF98ACF6BFCC9445E81D34B605295F911B9C1B007F33ACBFF3D3F21173D3C1F7AA71AA2226BF4B6FF19B9197B1F43FFCE1AE692DA9D9AD803BD735E505ECB1ECC5BEFC175A4DF4117F32FC82BCB1E2B1FBF2FDE5B1471729E408C4391D72E78E47C905A04E8F1887CBB991D899C75ECC1F3A3F91D900C5F353E2796F6E73CE5A57B1BF89A4E425579EA71140B0C054D5282C2BD34DF359EFA9B87BE7856E6BE038D3D756ACBAF332471BDEF412BF935FF285F773F40BBE8229B9FDFBE6B378A6B052E09FC217CF8788FD1340DFF252E0654C2FD6A606D902BA4D9FCCF4A8A7BA92F6AED1AEDF5A7DA882FD5FC1BF5FFB5FF4DB1D33FD688A37626FE3ECD6EFF55851C67DED9DE4BFEB541CF73544EC2CDAABDA358FF1ECF4BBDFCB4E6FFA44F6B0F5C7B]
+ Point(doHint)
+ link(onClick,3456556:doData,[])
+}
+Add(WinTools,4323913,84,140)
+{
+ link(Handle,12468929:Handle,[])
+}
+Add(DoData,15501240,560,315)
+{
+ Data=String(Копировать в буфер)
+ link(onEventData,7285468:doHint,[])
+}
+Add(LineBreakEx,5967809,189,126)
+{
+ Caption="Hint_2"
+}
+Add(LineBreakEx,1278361,490,315)
+{
+ Caption="Hint_2"
+ Type=1
+ link(OnEvent,15501240:doData,[])
+}
+Add(DoData,13364903,98,322)
+{
+ Data=String(Вставить из буфера)
+ link(onEventData,1721921:doHint,[])
+}
+Add(LineBreakEx,5661455,189,112)
+{
+ Caption="Hint_1"
+}
+Add(LineBreakEx,12245196,28,322)
+{
+ Caption="Hint_1"
+ Type=1
+ link(OnEvent,13364903:doData,[])
+}
+Add(Copy,11187925,301,322)
+{
+ Position=6
+ Count=4
+ link(onCopy,8628352:In,[(352,328)(352,321)])
+}
+Add(Copy,8926989,308,329)
+{
+ Position=11
+ Count=4
+ link(onCopy,10317035:In,[])
+}
+Add(Copy,14939195,315,336)
+{
+ Position=16
+ Count=4
+ link(onCopy,9459538:In,[(359,342)(359,349)])
+}
+Add(RegProg,5902569,441,189)
+{
+ HashSum=1
+ Point(doSerial)
+ Point(onSerial)
+ link(onSerial,4590177:doEvent1,[])
+}
+Add(StyleXP,421587,49,14)
+{
+}
